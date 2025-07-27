@@ -7,9 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Prompt Injection Prevention in Next.js: Best Practices & Guide",
+  title: "Bug Zap: Prompt Injection Prevention in Next.js",
   description:
-    "Comprehensive guide to prompt injection prevention in Next.js. Learn best practices, techniques, and tips to secure your Next.js applications against prompt injection attacks. Updated for 2025.",
+    "An interactive demo for basic prompt injection defense in Next.Js. Secure your Next.Js LLM applications againts prompt injection attacks. Updated for 2025.",
   keywords: [
     "prompt injection prevention",
     "Next.js security",
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     "2025",
   ],
   openGraph: {
-    title: "Prompt Injection Prevention in Next.js: Best Practices & Guide",
+    title: "Bug Zap: Prompt Injection Prevention in Next.js",
     description:
-      "Comprehensive guide to prompt injection prevention in Next.js. Learn best practices, techniques, and tips to secure your Next.js applications against prompt injection attacks.",
-    url: "https://yourdomain.com/",
+      "An interactive demo for basic prompt injection defense in Next.Js. Secure your Next.Js LLM applications againts prompt injection attacks.",
+    url: "https://bugzap.vercel.app/",
     siteName: "Prompt Injection Prevention Next.js",
     images: [
       {
-        url: "/placeholder-logo.png",
+        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>⚡</text></svg>",
         width: 1200,
         height: 630,
         alt: "Prompt Injection Prevention in Next.js",
@@ -39,10 +39,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prompt Injection Prevention in Next.js: Best Practices & Guide",
+    title: "Bug Zap: Prompt Injection Prevention in Next.js",
     description:
-      "Comprehensive guide to prompt injection prevention in Next.js. Learn best practices, techniques, and tips to secure your Next.js applications against prompt injection attacks.",
-    images: ["/placeholder-logo.png"],
+      "An interactive demo for basic prompt injection defense in Next.Js. Secure your Next.Js LLM applications againts prompt injection attacks.",
+    images: [
+      "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>⚡</text></svg>",
+    ],
   },
 };
 
