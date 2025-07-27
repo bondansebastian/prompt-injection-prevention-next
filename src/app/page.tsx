@@ -55,7 +55,7 @@ export default function ChatPage() {
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <Bot className="h-8 w-8 text-primary" />
-          <h1 className="text-2xl font-bold text-gray-900">Chat with Bot</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Chat with BugZapBot</h1>
         </div>
 
         {/* Prompt Injection Protection Toggle */}
@@ -92,13 +92,13 @@ export default function ChatPage() {
             <div className="flex h-full flex-col items-center justify-center text-center">
               {/* Welcome Section */}
               <div className="mb-8 max-w-3xl">
-                <h2 className="mb-4 text-3xl font-bold text-gray-900">Welcome to MurderBot! 🤖</h2>
+                <h2 className="mb-4 text-3xl font-bold text-gray-900">Welcome to BugZapBot! 🤖</h2>
                 <div className="mb-6 space-y-3 text-left">
                   <div className="rounded-lg bg-blue-50 p-4 text-blue-900">
                     <h3 className="mb-2 font-semibold">🛡️ Prompt Injection Protection Demo</h3>
                     <p className="text-sm">
                       This chatbot demonstrates how to implement simple guard rails against prompt engineering attacks.
-                      The bot has been trained to maintain its identity as MurderBot (a friendly mosquito-hunting
+                      The bot has been trained to maintain its identity as BugZapBot (a friendly mosquito-zapping
                       assistant) regardless of what users might try to make it do.
                     </p>
                   </div>

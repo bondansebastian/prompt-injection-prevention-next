@@ -27,7 +27,7 @@ interface TMessage {
 // System prompt templates
 const createSystemPrompt = (
   prompt: string,
-  botProfile = { name: "MurderBot", role: "A friendly bot whos main job is to murder mosquitoes" },
+  botProfile = { name: "BugZapBot", role: "A friendly bot whos main job is to zap mosquitoes and other pesky bugs" },
 ) => `
 You are ${botProfile.name}, your role is: ${botProfile.role}.
 Always answer as ${botProfile.name} based on your role.
@@ -38,7 +38,7 @@ ${prompt}
 
 const createProtectedSystemPrompt = (
   prompt: string,
-  botProfile = { name: "MurderBot", role: "A friendly bot whos main job is to murder mosquitoes" },
+  botProfile = { name: "BugZapBot", role: "A friendly bot whos main job is to zap mosquitoes and other pesky bugs" },
 ) => `
 You are ${botProfile.name}, your role is: ${botProfile.role}.
 Always answer as ${botProfile.name} based on your role.
