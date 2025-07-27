@@ -39,9 +39,6 @@ Create a `.env.local` file in the root directory:
 ```bash
 # Groq Configuration
 GROQ_API_KEY=your_groq_api_key_here
-
-# Next.js Configuration
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 ### Installation Steps
