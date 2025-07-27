@@ -1,6 +1,6 @@
 # LLM Injection Prevention Demo
 
-_An interactive demo of simple prompt injection protection for LLM chatbots. Try it live at: [https://prompt-injection.vercel.app](https://prompt-injection.vercel.app)_
+_An interactive demo of simple prompt injection protection for LLM chatbots. Try it live at: [https://bugzap.vercel.app](https://bugzap.vercel.app)_
 
 This project demonstrates basic and effective techniques for preventing prompt injection attacks in LLM-powered applications. Built with Next.js and Vercel's AI SDK, it lets you experiment with prompt injection attempts and see how simple protections work in real time.
 
