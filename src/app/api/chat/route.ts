@@ -54,7 +54,81 @@ Conversation context:
 ${prompt}
 `;
 
+// Helper function to validate CSRF protection
+function validateCsrfProtection(req: Request): boolean {
+  const origin = req.headers.get("origin");
+  const referer = req.headers.get("referer");
+  const contentType = req.headers.get("content-type");
+  const method = req.method;
+
+  // Only allow POST requests with JSON content type
+  if (method !== "POST") {
+    return false;
+  }
+
+  if (!contentType || !contentType.includes("application/json")) {
+    return false;
+  }
+
+  // Define allowed origins for CSRF protection - exact matches only
+  const allowedOrigins = [
+    ...(process.env.NEXT_PUBLIC_SITE_URL
+      ? process.env.NEXT_PUBLIC_SITE_URL.includes(",")
+        ? process.env.NEXT_PUBLIC_SITE_URL.split(",").map((url) => url.trim())
+        : [process.env.NEXT_PUBLIC_SITE_URL.trim()]
+      : []),
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+    "http://localhost:3000",
+    "https://localhost:3000",
+  ].filter(Boolean) as string[];
+
+  // Both origin AND referer must be present for security
+  if (!origin || !referer) {
+    return false;
+  }
+
+  // Exact origin match (no startsWith to prevent subdomain spoofing)
+  const isOriginAllowed = allowedOrigins.some((allowed) => {
+    try {
+      const originUrl = new URL(origin);
+      const allowedUrl = new URL(allowed);
+      return originUrl.origin === allowedUrl.origin;
+    } catch {
+      return false;
+    }
+  });
+
+  if (!isOriginAllowed) {
+    return false;
+  }
+
+  // Exact referer match (must match one of allowed origins)
+  const isRefererAllowed = allowedOrigins.some((allowed) => {
+    try {
+      const refererUrl = new URL(referer);
+      const allowedUrl = new URL(allowed);
+      return refererUrl.origin === allowedUrl.origin;
+    } catch {
+      return false;
+    }
+  });
+
+  if (!isRefererAllowed) {
+    return false;
+  }
+
+  return true;
+}
+
 export async function POST(req: Request) {
+  // Early exit for CSRF protection
+  if (!validateCsrfProtection(req)) {
+    return new Response("Forbidden: Invalid origin", {
+      status: 403,
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+
   const { messages, isPromptInjectionProtectionEnabled = true } = await req.json();
   const latestMessage: TMessage = messages[messages.length - 1];
 
