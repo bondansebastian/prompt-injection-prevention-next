@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Bug Zap: Prompt Injection Prevention in Next.js",
   description:
-    "An interactive demo for basic prompt injection defense in Next.Js. Secure your Next.Js LLM applications againts prompt injection attacks. Updated for 2025.",
+    "An interactive demo for basic prompt injection defense in Next.Js. Secure your Next.Js LLM applications againts prompt injection attacks.",
   keywords: [
     "prompt injection prevention",
     "Next.js security",
