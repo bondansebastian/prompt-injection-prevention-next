@@ -1,6 +1,8 @@
 # LLM Injection Prevention Demo
 
-_Demonstrating prompt injection mitigation techniques with Next.js and Vercel AI SDK_
+_An interactive demo of simple prompt injection protection for LLM chatbots. Try it live at: [https://prompt-injection.vercel.app](https://prompt-injection.vercel.app)_
+
+This project demonstrates basic and effective techniques for preventing prompt injection attacks in LLM-powered applications. Built with Next.js and Vercel's AI SDK, it lets you experiment with prompt injection attempts and see how simple protections work in real time.
 
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
@@ -10,7 +12,7 @@ This repository demonstrates effective techniques for preventing prompt injectio
 
 ### Key Features
 
-- **🛡️ Prompt Injection Prevention**: Demonstrates multiple layers of protection against malicious prompts
+- **🛡️ Prompt Injection Prevention**: Demonstrates simple protection against malicious prompts
 - **� Input Sanitization**: Implements proper validation and filtering of user inputs
 - **⚡ Vercel AI SDK Integration**: Shows secure implementation patterns with modern AI frameworks
 - **🎯 System Prompt Protection**: Techniques to prevent system prompt extraction and manipulation
