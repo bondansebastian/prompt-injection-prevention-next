@@ -8,12 +8,19 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Send, Bot, User } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Send, Bot, User, Shield, ShieldOff } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 
 export default function ChatPage() {
-  const { messages, input, handleInputChange, handleSubmit, error, status } = useChat();
+  const [isPromptInjectionProtectionEnabled, setIsPromptInjectionProtectionEnabled] = useState(true);
+  const { messages, input, handleInputChange, handleSubmit, error, status } = useChat({
+    body: {
+      isPromptInjectionProtectionEnabled,
+    },
+  });
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -45,10 +52,28 @@ export default function ChatPage() {
   return (
     <div className="mx-auto flex h-screen min-h-screen max-w-4xl flex-col bg-gray-50 p-4">
       {/* Header */}
-      <div className="mb-6 flex items-center gap-3">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <Bot className="h-8 w-8 text-primary" />
           <h1 className="text-2xl font-bold text-gray-900">Chat with Bot</h1>
+        </div>
+
+        {/* Prompt Injection Protection Toggle */}
+        <div className="flex items-center space-x-3">
+          {isPromptInjectionProtectionEnabled ? (
+            <Shield className="h-5 w-5 text-green-600" />
+          ) : (
+            <ShieldOff className="h-5 w-5 text-red-600" />
+          )}
+          <Label htmlFor="prompt-injection-protection" className="text-sm font-medium">
+            Prompt Injection Protection
+          </Label>
+          <Switch
+            id="prompt-injection-protection"
+            checked={isPromptInjectionProtectionEnabled}
+            onCheckedChange={setIsPromptInjectionProtectionEnabled}
+            className="data-[state=checked]:bg-green-600"
+          />
         </div>
       </div>
 
