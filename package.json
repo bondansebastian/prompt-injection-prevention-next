@@ -22,6 +22,7 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "ai": "latest",
     "autoprefixer": "^10.4.20",
+    "botid": "^1.4.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",

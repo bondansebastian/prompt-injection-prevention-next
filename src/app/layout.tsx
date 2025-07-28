@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { BotIdClient } from "botid/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,10 +49,18 @@ export const metadata: Metadata = {
   },
 };
 
+const protectedRoutes = [
+  {
+    path: "/*",
+    method: "POST",
+  },
+];
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <BotIdClient protect={protectedRoutes} />
         <link
           rel="icon"
           href={`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text y='52' font-size='52'>⚡</text></svg>`}

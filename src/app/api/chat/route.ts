@@ -1,5 +1,6 @@
 import { groq } from "@ai-sdk/groq";
 import { streamText } from "ai";
+import { checkBotId } from "botid/server";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -121,6 +122,12 @@ function validateCsrfProtection(req: Request): boolean {
 }
 
 export async function POST(req: Request) {
+  const verification = await checkBotId();
+
+  if (verification.isBot) {
+    return new Response("Access denied", { status: 403 });
+  }
+
   // Early exit for CSRF protection
   if (!validateCsrfProtection(req)) {
     return new Response("Forbidden: Invalid origin", {
